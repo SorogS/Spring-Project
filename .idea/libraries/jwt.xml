@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="jwt">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../jwt" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/../jwt" recursive="false" />
+  </library>
+</component>

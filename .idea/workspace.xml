@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ee2e1175-b9b8-49be-b213-47dda396f70b" name="Default Changelist" comment="remove .idea" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="FxmlFile" />
+        <option value="CSS File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="22cINbVjJctoxcEceQjJUa9Tdm2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.5103448" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\БГТУ\3_Курс\СТПВИ\CarRentServiceV2\src\main\resources\static\js" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.CarrentApplication">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CarrentApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CarRentServiceV2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.shabunya.carrent.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sorog.carrent" />
+      <option name="MAIN_CLASS_NAME" value="com.sorog.carrent.CarrentApplicationTests" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CarRentServiceV2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.shabunya.carrent.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sorog.carrent" />
+      <option name="MAIN_CLASS_NAME" value="com.sorog.carrent.PageTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PageTest.loadMainPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CarRentServiceV2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.shabunya.carrent.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sorog.carrent" />
+      <option name="MAIN_CLASS_NAME" value="com.sorog.carrent.PageTest" />
+      <option name="METHOD_NAME" value="loadMainPage" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserTest.existsUserByLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CarRentServiceV2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.shabunya.carrent.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sorog.carrent" />
+      <option name="MAIN_CLASS_NAME" value="com.sorog.carrent.UserTest" />
+      <option name="METHOD_NAME" value="existsUserByLogin" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserTest.existsUserByLoginAndPassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CarRentServiceV2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.shabunya.carrent.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sorog.carrent" />
+      <option name="MAIN_CLASS_NAME" value="com.sorog.carrent.UserTest" />
+      <option name="METHOD_NAME" value="existsUserByLoginAndPassword" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CarrentApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="CarRentServiceV2" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sorog.carrent.CarrentApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.CarrentApplicationTests" />
+      <item itemvalue="JUnit.PageTest" />
+      <item itemvalue="JUnit.PageTest.loadMainPage" />
+      <item itemvalue="JUnit.UserTest.existsUserByLogin" />
+      <item itemvalue="JUnit.UserTest.existsUserByLoginAndPassword" />
+      <item itemvalue="Spring Boot.CarrentApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.CarrentApplicationTests" />
+        <item itemvalue="JUnit.PageTest" />
+        <item itemvalue="JUnit.PageTest.loadMainPage" />
+        <item itemvalue="JUnit.UserTest.existsUserByLoginAndPassword" />
+        <item itemvalue="JUnit.UserTest.existsUserByLogin" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ee2e1175-b9b8-49be-b213-47dda396f70b" name="Default Changelist" comment="" />
+      <created>1640130411164</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1640130411164</updated>
+      <workItem from="1640130412383" duration="11340000" />
+      <workItem from="1640150516133" duration="1446000" />
+      <workItem from="1640152922953" duration="1277000" />
+      <workItem from="1640155098776" duration="4411000" />
+      <workItem from="1640162175469" duration="3717000" />
+      <workItem from="1640181340186" duration="9507000" />
+      <workItem from="1640190967687" duration="3596000" />
+      <workItem from="1640282136956" duration="1346000" />
+      <workItem from="1640337604077" duration="810000" />
+      <workItem from="1640428384970" duration="20169000" />
+      <workItem from="1640454865043" duration="6637000" />
+      <workItem from="1640505843718" duration="33109000" />
+      <workItem from="1640544087662" duration="7280000" />
+      <workItem from="1640552410339" duration="7113000" />
+      <workItem from="1640594029364" duration="3951000" />
+      <workItem from="1640600036591" duration="2208000" />
+      <workItem from="1640608920016" duration="3219000" />
+      <workItem from="1640622098158" duration="17911000" />
+      <workItem from="1640641064231" duration="14275000" />
+      <workItem from="1640676982652" duration="944000" />
+      <workItem from="1640679213361" duration="13406000" />
+      <workItem from="1662110622902" duration="766000" />
+      <workItem from="1663565599007" duration="58000" />
+      <workItem from="1669976504482" duration="925000" />
+      <workItem from="1669977464573" duration="164000" />
+      <workItem from="1669977639233" duration="153000" />
+      <workItem from="1669977806163" duration="401000" />
+      <workItem from="1669978269777" duration="1384000" />
+      <workItem from="1669997541532" duration="4973000" />
+      <workItem from="1670081607244" duration="4291000" />
+      <workItem from="1670086457056" duration="1961000" />
+      <workItem from="1670091448954" duration="9423000" />
+      <workItem from="1670339862624" duration="351000" />
+      <workItem from="1670341137858" duration="821000" />
+      <workItem from="1670341978625" duration="78000" />
+      <workItem from="1670342290716" duration="6930000" />
+      <workItem from="1670359602507" duration="59000" />
+      <workItem from="1670383535014" duration="2189000" />
+      <workItem from="1670389478378" duration="1053000" />
+      <workItem from="1671272389448" duration="1494000" />
+      <workItem from="1671274035792" duration="50000" />
+      <workItem from="1671276129437" duration="40000" />
+      <workItem from="1671276223634" duration="37000" />
+      <workItem from="1671476498900" duration="28000" />
+      <workItem from="1671477072422" duration="627000" />
+    </task>
+    <task id="LOCAL-00001" summary="remove .idea">
+      <created>1669977217195</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1669977217195</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="remove .idea" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove .idea" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="org.springframework.security.authentication.InternalAuthenticationServiceException" package="org.springframework.security.authentication" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/main/resources/static/js/admin.js</url>
+          <line>171</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/sorog/carrent/jwt/JwtProvider.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="org.springframework.security.web.firewall.StrictHttpFirewall$StrictFirewalledRequest" memberName="request" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="e" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>
