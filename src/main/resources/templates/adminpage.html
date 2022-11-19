@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/adminpageStyle.css}">
+    <script th:src="@{../../js/admin.js}"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body th:attr="onload=|showTable('${tables.tableName}')|">
+<header>
+    <div>
+        <!-- <button onclick="showTable('UsersInfo')">Users</button>
+         <button onclick="showTable('CarsInfo')">Cars</button>
+         <button onclick="showTable('OrdersInfo')">Orders</button>
+         <button onclick="showTable('UsersInfo')">Types</button>
+         <button onclick="PopUpShow()">Add Car</button> -->
+        <ul class="menu-main">
+            <li><a th:href="@{/}">Main Page</a></li>
+            <li><a onclick="showTable('UsersInfo'); return false">users</a></li>
+            <li><a onclick="showTable('CarsInfo'); return false">cars</a></li>
+            <li><a onclick="showTable('OrdersInfo'); return false">orders</a></li>
+            <li><a onclick="PopUpShow(); return false;">add cars</a></li>
+
+        </ul>
+    </div>
+</header>
+<div class="popUp" id="popUpEdit">
+    <div class="popUp_content" id="popUp_content">
+        <form name="CarEditForm">
+            <p>
+                Car Name
+            </p>
+            <input type="text" name="CarName">
+            <p>
+                Cost per day
+            </p>
+            <input type="number" name="CarCost">
+            <p>
+                Car type
+            </p>
+            <select name="type">
+                <option th:each="type : ${tables.type}" th:value="${type}" th:name="${type}" th:text="${type}"></option>
+            </select>
+        </form>
+        <button onclick="EditCar()">Edit</button>
+        <button onclick="PopUpHide()">Close</button>
+    </div>
+</div>
+<div class="popUp" id="popUpAdd">
+    <div class="popUp_content">
+        <form name="CarAddForm">
+            <p>
+                Car Name
+            </p>
+            <input type="text" name="CarName">
+            <p>
+                Cost per day
+            </p>
+            <input type="number" name="CarCost">
+            <p>
+                Car type
+            </p>
+            <select name="type">
+                <option th:each="type : ${tables.type}" th:value="${type}" th:name="${type}" th:text="${type}"></option>
+            </select>
+            <p>
+                <input type="file" name="image">
+            </p>
+        </form>
+        <button onclick="carAdd()">Add</button>
+        <button onclick="PopUpHide()">Close</button>
+    </div>
+</div>
+<div>
+    <div id="UsersInfo">
+        <div class="tabl1">
+            <div class="tablecell"><h2>login</h2></div>
+            <div class="tablecell"><h2>name</h2></div>
+            <div class="tablecell"><h2>surname</h2></div>
+            <div class="tablecell"><h2>email</h2></div>
+            <div class="tablecell"><h2>activity</h2></div>
+            <div class="tablecell"><h2>role</h2></div>
+            <div class="tablecell"><h2>control</h2></div>
+            <tr th:each="user : ${tables.allUsers}">
+                <div class="tablecell"><h3 th:text="${user.login}"></h3></div>
+                <div class="tablecell"><h3 th:text="${user.name}"></h3></div>
+                <div class="tablecell"><h3 th:text="${user.surname}"></h3></div>
+                <div class="tablecell"><h3 th:text="${user.email}"></h3></div>
+                <div class="tablecell"><h3 th:text="${user.isActive ? 'Active' : 'Not Active'}"></h3></div>
+                <div class="tablecell"><h3 th:text="${user.userRole.id == 2 ? 'User' : 'Admin'}"></h3></div>
+                <div class="tablecell">
+                    <div class="btn">
+                        <button th:attr="onclick=|DeleteUser(${user.user_id}); return false|">Delete User</button>
+                        <button th:attr="onclick=|ChangeActivity(${user.user_id},${user.active}); return false|">Change
+                            Activity
+                        </button>
+                        <button th:attr="onclick=|ChangeRole(${user.user_id},'${user.userRole.name}'); return false|">
+                            Change privileges
+                        </button>
+                    </div>
+                </div>
+            </tr>
+        </div>
+    </div>
+    <!--
+    <td th:text="${user.login}"></td>
+    <td th:text="${user.name}"></td>
+    <td th:text="${user.surname}"></td>
+    <td th:text="${user.email}"></td>
+    <td th:text="${user.isActive ? 'Active' : 'Not Active'}"></td>
+    <td th:text="${user.userRole.id == 2 ? 'User' : 'Admin'}"></td>
+    <td><button th:attr="onclick=|DeleteUser(${user.user_id})|">Delete User</button></td>
+    <td><button th:attr="onclick=|ChangeActivity(${user.user_id},${user.active})|">Change Activity</button></td>
+    <td><button th:attr="onclick=|ChangeRole(${user.user_id},'${user.userRole.name}')|">Change privileges </button></td>
+    -->
+
+    <!--<table>
+        <tr>
+            <td>
+                <h3>Login</h3>
+            </td>
+            <td>
+                <h3>Name</h3>
+            </td>
+            <td>
+                <h3>Surname</h3>
+            </td>
+            <td>
+                <h3>email</h3>
+            </td>
+            <td>
+                <h3>Activity</h3>
+            </td>
+            <td>
+                <h3>Role</h3>
+            </td>
+        </tr>
+        <tr th:each="user : ${tables.allUsers}">
+            <td th:text="${user.login}"></td>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.surname}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.isActive ? 'Active' : 'Not Active'}"></td>
+            <td th:text="${user.userRole.id == 2 ? 'User' : 'Admin'}"></td>
+            <td><button th:attr="onclick=|DeleteUser(${user.user_id})|">Delete User</button></td>
+            <td><button th:attr="onclick=|ChangeActivity(${user.user_id},${user.active})|">Change Activity</button></td>
+            <td><button th:attr="onclick=|ChangeRole(${user.user_id},'${user.userRole.name}')|">Change privileges </button></td>
+        </tr>
+    </table>
+</div>-->
+    <div id="CarsInfo">
+        <div class="tabl2">
+            <div class="tablecell"><h2>Image</h2></div>
+            <div class="tablecell"><h2>car name</h2></div>
+            <div class="tablecell"><h2>cost pre day</h2></div>
+            <div class="tablecell"><h2>type</h2></div>
+            <div class="tablecell"><h2>controller</h2></div>
+            <tr th:each="car : ${tables.allCars}">
+                <div class="tablecell"><img th:src="*{'data:image/jpeg;base64,'+car.carImage}" alt="" height="100"
+                                            width="100"/></div>
+                <div class="tablecell"><h2 th:text="${car.carName}"></h2></div>
+                <div class="tablecell"><h2 th:text="${car.costPerDay}"></h2></div>
+                <div class="tablecell"><h2 th:text="${car.type}"></h2></div>
+                <div class="tablecell">
+                    <div class="btn">
+                        <button th:attr="onclick=|PopUpShow(${car.car_id},'${car.carName}','${car.type}',${car.costPerDay}); return false|">
+                            Edit Car
+                        </button>
+                        <button th:attr="onclick=|DeleteCar(${car.car_id}); return false|">Delete Car</button>
+                    </div>
+                </div>
+            </tr>
+
+        </div>
+        <!--<table>
+            <tr>
+                <td><h3>Car Name</h3></td>
+                <td><h3>Cost per day</h3></td>
+                <td><h3>Type</h3></td>
+
+            </tr>
+            <tr th:each="car : ${tables.allCars}">
+                <td>
+                    <img th:src="*{'data:image/jpeg;base64,'+car.carImage}" alt="" height="100" width="100"/>
+                </td>
+                <td th:text="${car.carName}"></td>
+                <td th:text="${car.costPerDay}"></td>
+                <td th:text="${car.type}"></td>
+                <td><button th:attr="onclick=|DeleteCar(${car.car_id})|">Delete Car</button></td>
+                <td><button th:attr="onclick=|PopUpShow(${car.car_id},'${car.carName}','${car.type}',${car.costPerDay})|">Edit Car</button></td>
+            </tr>
+
+        </table> -->
+    </div>
+    <div id="OrdersInfo">
+        <div class="tabl3">
+            <div class="tablecell"><h2>status</h2></div>
+            <div class="tablecell"><h2>name</h2></div>
+            <div class="tablecell"><h2>surname</h2></div>
+            <div class="tablecell"><h2>car name</h2></div>
+            <div class="tablecell"><h2>type</h2></div>
+            <div class="tablecell"><h2>cost</h2></div>
+            <div class="tablecell"><h2>rent start</h2></div>
+            <div class="tablecell"><h2>rent end</h2></div>
+            <div class="tablecell"><h2>sum cost</h2></div>
+            <div class="tablecell"><h2>controller</h2></div>
+            <tr th:each="order : ${tables.allOrder}">
+                <div class="tablecell" th:text="${order.status}"></div>
+                <div class="tablecell" th:text="${order.user.name}"></div>
+                <div class="tablecell" th:text="${order.user.surname}"></div>
+                <div class="tablecell" th:text="${order.car.carName}"></div>
+                <div class="tablecell" th:text="${order.car.type}"></div>
+                <div class="tablecell" th:text="${order.car.costPerDay}"></div>
+                <div class="tablecell" th:text="${order.dateStart}"></div>
+                <div class="tablecell" th:text="${order.dateEnd}"></div>
+                <div class="tablecell" th:text="${order.sumrentcost}"></div>
+                <div class="tablecell">
+                    <div class="btn">
+                        <button th:if="${order.status.toString() == 'Active'}"
+                                th:attr="onclick=|EndRent(${order.order_id})|">End Rent
+                        </button>
+                        <button th:if="${order.status.toString() == 'Deleted'}"
+                                th:attr="onclick=|DeleteOrder(${order.order_id})|">Delete Order
+                        </button>
+                    </div>
+                </div>
+            </tr>
+        </div>
+    </div>
+    <!--<table>
+        <tr>
+            <td><h3>Status</h3></td>
+            <td><h3>Name</h3></td>
+            <td><h3>Surname</h3></td>
+            <td><h3>Car Name</h3></td>
+            <td><h3>Type</h3></td>
+            <td><h3>Cost per day</h3></td>
+            <td><h3>Rent start</h3></td>
+            <td><h3>Rent end</h3></td>
+            <td><h3>Sum cost</h3></td>
+        </tr>
+        <tr th:each="order : ${tables.allOrder}">
+            <td th:text="${order.status}"></td>
+            <td th:text="${order.user.name}"></td>
+            <td th:text="${order.user.surname}"></td>
+            <td th:text="${order.car.carName}"></td>
+            <td th:text="${order.car.type}"></td>
+            <td th:text="${order.car.costPerDay}"></td>
+            <td th:text="${order.dateStart}"></td>
+            <td th:text="${order.dateEnd}"></td>
+            <td th:text="${order.sumrentcost}"></td>
+            <td th:if="${order.status.toString() == 'Active'}" th:attr="onclick=|EndRent(${order.order_id})|"><button>End Rent</button></td>
+            <td th:if="${order.status.toString() == 'Deleted'}" th:attr="onclick=|DeleteOrder(${order.order_id})|"><button>Delete Order</button></td>
+        </tr>
+    </table>-->
+    <footer>
+        <div class="wrapperfooter">
+            <div class="svgwrapper">
+                <div class="svg">
+                    <a href="#"> <?xml version="1.0" ?><!DOCTYPE &amp; PUBLIC '-//W3C//DTD SVG 1.1//EN'
+                        'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+                        <svg enable-background="new 0 0 32 32" height="32px" version="1.1" viewBox="0 0 32 32"
+                             width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+                             xmlns:xlink="http://www.w3.org/1999/xlink"><g id="viber_1_"><path d="M9.984,31.001c-0.159,0-0.326-0.025-0.503-0.081c-0.904-0.275-1.109-1.335-1.086-1.918l0.004-2.529   c-6.861-2.181-6.706-9.549-6.631-13.122c0.078-3.707,0.78-6.334,2.209-8.27c0.164-0.223,0.477-0.269,0.699-0.105   c0.222,0.164,0.27,0.477,0.105,0.699c-1.301,1.762-1.94,4.208-2.014,7.697c-0.077,3.64-0.22,10.413,6.25,12.243   c0.087,0.022,0.168,0.067,0.232,0.131c0.094,0.094,0.149,0.221,0.149,0.354l-0.005,2.922c-0.005,0.186,0.045,0.84,0.382,0.942   c0.438,0.14,0.746-0.154,1.453-0.956c0.136-0.155,0.279-0.317,0.431-0.48c0.489-0.528,1.164-1.305,1.676-1.896   c0.104-0.121,0.259-0.186,0.42-0.171c4.857,0.406,8.41-0.602,8.443-0.612c0.089-0.029,0.22-0.063,0.381-0.104   c1.545-0.394,5.651-1.439,6.393-7.522c0.803-6.535-0.139-11.337-2.652-13.522c-0.489-0.451-3.21-2.652-9.794-2.681   c-0.074-0.004-4.462-0.246-8.09,1.111C8.175,3.229,7.889,3.097,7.792,2.839C7.696,2.58,7.827,2.292,8.085,2.195   c3.831-1.433,8.285-1.184,8.473-1.174c6.925,0.029,9.903,2.45,10.429,2.935c2.761,2.401,3.822,7.515,2.978,14.389   c-0.825,6.762-5.577,7.972-7.138,8.37c-0.136,0.035-0.245,0.062-0.322,0.087c-0.723,0.229-4.247,0.998-8.579,0.677   c-0.492,0.567-1.088,1.25-1.533,1.73c-0.147,0.158-0.284,0.313-0.415,0.462C11.4,30.326,10.806,31.001,9.984,31.001z" fill="#263238"/><g><path d="M20.258,22.6c-0.207,0-0.412-0.033-0.61-0.096l-0.171-0.065c-1.376-0.443-4.095-1.89-5.786-3.237    c-0.902-0.712-1.785-1.595-2.483-2.483c-0.644-0.805-1.246-1.717-1.79-2.707c-1.221-2.207-1.505-3.222-1.517-3.264    c-0.461-1.43,0.854-2.783,2.122-3.5l0.144-0.065c0.679-0.302,1.397-0.145,1.852,0.401l0,0c0,0,0.716,0.856,1.022,1.278    c0.302,0.41,0.698,1.058,0.89,1.392c0.482,0.862,0.184,1.751-0.339,2.152l-0.671,0.537c-0.11,0.089-0.117,0.325-0.114,0.358    c0,0,0,0,0,0c0.008,0,0.998,3.465,4.4,4.334c0.052-0.014,0.211-0.044,0.279-0.129l0.544-0.679    c0.433-0.567,1.401-0.747,2.141-0.334c0.738,0.417,1.884,1.173,2.693,1.936c0.532,0.432,0.678,1.126,0.372,1.814v0.019    l-0.065,0.126C22.875,20.907,21.793,22.6,20.258,22.6z M20.106,21.588c0.792,0.125,1.675-0.809,2.159-1.633l0.027-0.056    c0.157-0.301,0.127-0.543-0.088-0.718c-0.639-0.602-1.619-1.305-2.524-1.815c-0.337-0.189-0.749-0.07-0.863,0.079l-0.551,0.688    c-0.354,0.442-0.903,0.49-1.123,0.49l-0.104-0.004c-4.084-1.038-5.169-4.978-5.213-5.145c-0.021-0.164-0.068-0.878,0.47-1.31    l0.68-0.544c0.132-0.101,0.322-0.45,0.086-0.872c-0.215-0.375-0.58-0.959-0.828-1.295c-0.295-0.407-0.981-1.225-0.983-1.227    c-0.192-0.231-0.438-0.256-0.738-0.099l-0.102,0.053c-0.758,0.455-1.84,1.386-1.551,2.284c0.008,0.029,0.284,0.987,1.434,3.066    c0.517,0.941,1.087,1.805,1.697,2.569c0.653,0.832,1.477,1.654,2.321,2.321c1.793,1.428,4.565,2.818,5.612,3.111L20.106,21.588z" fill="#263238"/></g><path
+                                d="M23,13.5c-0.276,0-0.5-0.224-0.5-0.5c0-3.033-2.467-5.5-5.5-5.5c-0.276,0-0.5-0.224-0.5-0.5   s0.224-0.5,0.5-0.5c3.584,0,6.5,2.916,6.5,6.5C23.5,13.276,23.276,13.5,23,13.5z"
+                                fill="#263238"/><path
+                                d="M21,13.5c-0.276,0-0.5-0.224-0.5-0.5c0-1.93-1.57-3.5-3.5-3.5c-0.276,0-0.5-0.224-0.5-0.5   s0.224-0.5,0.5-0.5c2.481,0,4.5,2.019,4.5,4.5C21.5,13.276,21.276,13.5,21,13.5z"
+                                fill="#263238"/><path
+                                d="M19,13.5c-0.276,0-0.5-0.224-0.5-0.5c0-0.827-0.673-1.5-1.5-1.5c-0.276,0-0.5-0.224-0.5-0.5   s0.224-0.5,0.5-0.5c1.378,0,2.5,1.122,2.5,2.5C19.5,13.276,19.276,13.5,19,13.5z"
+                                fill="#263238"/><circle cx="6.5" cy="3.5" fill="#263238" r="0.5"/></g></svg>
+                    </a></div>
+                <div class="svg">
+                    <a href="#"> <?xml version="1.0" ?><!DOCTYPE &amp; PUBLIC '-//W3C//DTD SVG 1.1//EN'
+                        'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+                        <svg enable-background="new 0 0 32 32" height="32px" version="1.1" viewBox="0 0 32 32"
+                             width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+                             xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Instagram"><path d="M23,30H9c-3.86,0-7-3.14-7-7V9c0-3.86,3.14-7,7-7h14c3.86,0,7,3.14,7,7v14C30,26.86,26.86,30,23,30z M9,3   C5.691,3,3,5.691,3,9v14c0,3.309,2.691,6,6,6h14c3.309,0,6-2.691,6-6V9c0-3.309-2.691-6-6-6H9z" fill="#263238"/><path
+                                d="M20,26h-8c-3.309,0-6-2.691-6-6v-8c0-3.309,2.691-6,6-6h8c3.309,0,6,2.691,6,6v8C26,23.309,23.309,26,20,26   z M12,8c-2.206,0-4,1.794-4,4v8c0,2.206,1.794,4,4,4h8c2.206,0,4-1.794,4-4v-8c0-2.206-1.794-4-4-4H12z"
+                                fill="#263238"/><path
+                                d="M21.5,11.75c-0.689,0-1.25-0.561-1.25-1.25s0.561-1.25,1.25-1.25s1.25,0.561,1.25,1.25   S22.189,11.75,21.5,11.75z"
+                                fill="#263238"/><path
+                                d="M16,21c-2.757,0-5-2.243-5-5s2.243-5,5-5s5,2.243,5,5S18.757,21,16,21z M16,13c-1.654,0-3,1.346-3,3   s1.346,3,3,3s3-1.346,3-3S17.654,13,16,13z"
+                                fill="#263238"/></g></svg>
+
+                    </a></div>
+                <div class="svg">
+                    <a href="#"> <?xml version="1.0" ?><!DOCTYPE &amp; PUBLIC '-//W3C//DTD SVG 1.1//EN'
+                        'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+                        <svg enable-background="new 0 0 32 32" height="32px" version="1.1" viewBox="0 0 32 32"
+                             width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+                             xmlns:xlink="http://www.w3.org/1999/xlink"><g id="telegram_3_"><path d="M15.737,31C7.474,31,1,24.411,1,16c0-3.629,1.237-7.111,3.485-9.804c0.178-0.212,0.492-0.239,0.704-0.063   C5.401,6.31,5.43,6.625,5.253,6.837C3.155,9.35,2,12.604,2,16c0,7.851,6.034,14,13.737,14C23.602,30,30,23.72,30,16   S23.602,2,15.737,2c-2.44,0-4.813,0.62-6.858,1.792C8.642,3.925,8.334,3.846,8.197,3.606C8.06,3.366,8.143,3.061,8.383,2.923   C10.579,1.665,13.122,1,15.737,1C24.153,1,31,7.729,31,16S24.153,31,15.737,31z" fill="#263238"/><g><g><g><g><g><g><path d="M7.543,4.552c0,0.275-0.225,0.5-0.5,0.5l0,0c-0.275,0-0.5-0.225-0.5-0.5l0,0         c0-0.275,0.225-0.5,0.5-0.5l0,0C7.318,4.052,7.543,4.276,7.543,4.552L7.543,4.552z" fill="#263238"/></g></g></g></g></g></g><g><path d="M19.55,24.018c-0.111,0-0.224-0.037-0.316-0.113l-5.763-4.721c-0.113-0.092-0.18-0.229-0.184-0.375    c-0.003-0.146,0.057-0.285,0.165-0.383l4.277-3.86c0.205-0.187,0.521-0.169,0.706,0.036c0.186,0.205,0.169,0.521-0.036,0.706    l-3.846,3.47l5.313,4.353c0.214,0.175,0.245,0.49,0.07,0.704C19.838,23.955,19.694,24.018,19.55,24.018z" fill="#263238"/>
+                            <path d="M20.157,24.204L20.157,24.204c-0.265,0-0.55-0.083-0.849-0.248l-3.286-2.641l-1.684,1.553    c-0.234,0.229-0.52,0.507-1.089,0.507c-0.7,0-0.863-0.369-0.97-0.748c-0.019-0.065-0.04-0.141-0.071-0.228l-1.206-3.969    l-3.456-1.078c-0.814-0.25-0.923-0.749-0.932-0.951c-0.014-0.336,0.161-0.815,1.074-1.181l14.848-5.729    c0.425-0.166,0.924-0.032,1.212,0.323c0.203,0.249,0.281,0.573,0.215,0.889l-2.565,12.275    C21.168,24.084,20.453,24.204,20.157,24.204z M16,20.155c0.111,0,0.222,0.037,0.313,0.111l3.55,2.862    c0.459,0.219,0.5-0.085,0.557-0.354L22.985,10.5l-0.063-0.081L8.056,16.151c-0.175,0.07-0.29,0.139-0.36,0.19    c0.037,0.018,0.086,0.037,0.147,0.056l3.711,1.158c0.157,0.05,0.281,0.174,0.329,0.332l1.274,4.196    c0.033,0.088,0.061,0.188,0.085,0.272c0.002,0.006,0.004,0.013,0.005,0.019c0.133-0.001,0.203-0.037,0.388-0.218l2.026-1.87    C15.757,20.2,15.878,20.155,16,20.155z"
+                                  fill="#263238"/></g><g><g><g><g><g><g><path d="M20.043,13.552c0,0.275-0.225,0.5-0.5,0.5l0,0c-0.275,0-0.5-0.225-0.5-0.5l0,0         c0-0.275,0.225-0.5,0.5-0.5l0,0C19.818,13.052,20.043,13.276,20.043,13.552L20.043,13.552z" fill="#263238"/></g></g></g></g></g></g></g></svg>
+                    </a></div>
+            </div>
+        </div>
+
+    </footer>
+
+</div>
+</body>
+</html>

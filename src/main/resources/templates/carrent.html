@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{../css/buttons_links.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{../css/main-menu.css}">
+    <script src="../static/js/carsrent.js" th:src="@{../js/carsrent.js}"></script>
+    <script>
+        window.onload = carRentPageOnload();
+    </script>
+</head>
+<header>
+    <a class="underline" th:href="@{/}">Main Page</a>
+    <hr>
+</header>
+<body onload="setMinDate()">
+<div id="CarForRent">
+
+</div>
+<div>
+    <h3>Rent start date</h3>
+    <input type="date" id="RentStart" onchange="setMinDateForEnd()">
+    <br>
+    <h3>Rent end date</h3>
+    <input type="date" id="RentEnd">
+</div>
+<br>
+<button class="custom-btn" onclick="sendRentRequest()">Rent</button>
+
+</body>
+</html>

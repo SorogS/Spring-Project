@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{../css/buttons_links.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{../css/main-menu.css}">
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body onload="loginOnload()">
+<script type="text/javascript" src="../static/js/login.js" th:src="@{../js/login.js}"></script>
+
+<h3>Auth</h3>
+<input type="text" id="login" placeholder="login" maxlength="30"><br>
+<input type="password" id="password" placeholder="password" maxlength="30">
+
+<button onclick="login()">Submit</button>
+<br>
+<a href="/">home</a><br>
+<div id="message"></div>
+</body>
+</html>

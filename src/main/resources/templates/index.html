@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <link rel="stylesheet" type="text/css" th:href="@{../css/buttons_links.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{../css/main-menu.css}">
+    <script th:src="@{../js/index.js}" th:inline="javascript"></script>
+</head>
+<body onload="indexOnLoadFunc()">
+<header id="index_header">
+
+</header>
+<div class="car_container">
+    <div id="filter">
+        Filter:
+        <select id="filterSelect" onchange="filterChange()">
+            <option value="All" name="All" selected>All</option>
+            <option th:each="type : ${carTypes}" th:value="${type}" th:name="${type}" th:text="${type}"></option>
+        </select>
+    </div>
+    <table id="carsTable">
+        <tr>
+            <td>
+                <h3>Image</h3>
+            </td>
+            <td>
+                <h3>Car Name</h3>
+            </td>
+            <td>
+                <h3>Type</h3>
+            </td>
+            <td>
+                <h3>Cost per day</h3>
+            </td>
+        </tr>
+        <tr th:each="car : ${cars}">
+            <td>
+                <img th:src="*{'data:image/jpeg;base64,'+car.carImage}" alt="" height="120" width="120"/>
+            </td>
+            <td th:text="${car.carName}"></td>
+            <td th:text="${car.type}"></td>
+            <td th:text="${car.costPerDay}"></td>
+            <td><a class="underline" th:href="'/rentcar/'+${car.car_id}">Rent</a></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

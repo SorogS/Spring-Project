@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{../css/buttons_links.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{../css/main-menu.css}">
+    <script th:src="@{../js/profile.js}"></script>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <style>
+        .popUp {
+            width: 100%;
+            min-height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            position: fixed;
+            top: 0px;
+            visibility: hidden;
+
+        }
+
+        .popUp .popUp_content {
+            margin: 40px auto 0px auto;
+            width: 420px;
+            height: 90px;
+            padding: 10px;
+            background-color: #c5c5c5;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px #000;
+        }
+    </style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Cars</title>
+</head>
+<body onload="profileOnLoad()">
+<header>
+    <ul class="menu-main">
+        <li>
+            <a th:href="@{/}">Main</a>
+        </li>
+        <li>
+            <a th:href="@{/loginin}">Log Out</a>
+        </li>
+    </ul>
+</header>
+<div id="profile_info">
+
+</div>
+<div class="popUp" id="PopUpBalance">
+    <div class="popUp_content">
+        <tr>
+            <td>
+
+            </td>
+            <td>
+                <input type="number" id="newBalance">
+                <button onclick="updateBalance()">Top Up</button>
+                <br>
+                <button onclick="popUpHide()">Close</button>
+            </td>
+        </tr>
+    </div>
+</div>
+<div class="popUp" id="popUpRent">
+    <div class="popUp_content">
+        <tr>
+            <td>
+
+            </td>
+            <td>
+                <input type="date" id="newRentDate">
+                <button onclick="updateRentDate()">Renew rent</button>
+                <br>
+                <button onclick="popUpHide()">Close</button>
+            </td>
+        </tr>
+    </div>
+</div>
+<div class="orders_container">
+    <table>
+        <tr>
+            <td>
+                <h3>Order status</h3>
+            </td>
+            <td>
+                <h3>Car Name</h3>
+            </td>
+            <td>
+                <h3>Type</h3>
+            </td>
+            <td>
+                <h3>Rent cost per day</h3>
+            </td>
+            <td>
+                <h3>Date Start</h3>
+            </td>
+            <td>
+                <h3>Date End</h3>
+            </td>
+            <td>
+                <h3>Sum cost of rent</h3>
+            </td>
+        </tr>
+        <tr th:each="order : ${orders}">
+            <div th:if="${order.status.toString()!='Deleted'}">
+                <td th:switch="${order.status.toString()}">
+                    <span th:case="'Rent_End'">Rent End</span>
+                    <span th:case="'Active'">Active</span>
+                    <span th:case="'Rent_End_Before_Start'">Rent not started</span>
+                </td>
+                <td th:text="${order.carName}"></td>
+                <td th:text="${order.carType}"></td>
+                <td th:text="${order.costPerDay}"></td>
+                <td th:text="${order.dateRentStart}"></td>
+                <td th:text="${order.dateRentEnd}"></td>
+                <td th:text="${order.sumRentCost}"></td>
+                <td th:if="${order.status.toString() == 'Active'}">
+                    <button class="custom-btn"
+                            th:attr="onclick=|popUpShow(${order.orderId},'${order.dateRentStart}','${order.dateRentEnd}',${order.costPerDay})|">
+                        Renew Rent
+                    </button>
+                </td>
+                <td th:if="${order.status.toString() == 'Active'}">
+                    <button class="custom-btn"
+                            th:attr="onclick=|endRent(${order.orderId},'${order.dateRentStart}',${order.costPerDay})|">
+                        End rent
+                    </button>
+                </td>
+                <td th:if="${order.status.toString() == 'Rent_End' || order.status.toString() == 'Rent_End_Before_Start'}">
+                    <button class="custom-btn" th:attr="onclick=|deleteRent(${order.orderId})|">Delete Rent</button>
+                </td>
+            </div>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
+</body>
+</html>
